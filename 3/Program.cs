@@ -11,8 +11,7 @@ namespace _3
     {
         static void Main(string[] args)
         {
-            #region Чтение множества из файла
-
+            //----------Чтение множества из файла----------
             var line = File.ReadAllText("input.txt", Encoding.Default);
             line = Regex.Replace(line, @"[^0-9 \-]", String.Empty);
             var item = line.Split(default(string[]), StringSplitOptions.RemoveEmptyEntries);
@@ -20,14 +19,11 @@ namespace _3
             var sequence = new List<int>();
             for (var i = 0; i < n; i++)
                 sequence.Add(Convert.ToInt32(item[i]));
+            //---------------------------------------------
 
-            #endregion
-
-            #region Вывод ответа является ли функция перестановкой последовательности натуральных чисел
-
+            //----------Вывод ответа является ли функция перестановкой последовательности натуральных чисел----------
             File.WriteAllText("output.txt", IsSequenceOfPositiveIntegers(sequence) ? "да" : "нет");
-
-            #endregion
+            //-------------------------------------------------------------------------------------------------------
         }
 
         /// <summary>
