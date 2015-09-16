@@ -13,7 +13,7 @@ namespace _3
         {
             //----------Чтение множества из файла----------
             var line = File.ReadAllText("input.txt", Encoding.Default);
-            line = Regex.Replace(line, @"[^0-9 \-]", String.Empty);
+            line = Regex.Replace(line, @"-[^0-9]|[^0-9 \-]", String.Empty);
             var item = line.Split(default(string[]), StringSplitOptions.RemoveEmptyEntries);
             var n = item.Length;
             var sequence = new List<int>();
