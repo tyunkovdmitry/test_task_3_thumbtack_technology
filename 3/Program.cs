@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -15,10 +16,7 @@ namespace _3
             var line = File.ReadAllText("input.txt", Encoding.Default);
             line = Regex.Replace(line, @"-[^0-9]|[^0-9 \-]", String.Empty);
             var item = line.Split(default(string[]), StringSplitOptions.RemoveEmptyEntries);
-            var n = item.Length;
-            var sequence = new List<int>();
-            for (var i = 0; i < n; i++)
-                sequence.Add(Convert.ToInt32(item[i]));
+            var sequence = item.Select(str => Convert.ToInt32(str)).ToList();
             //---------------------------------------------
 
             //----------Вывод ответа является ли функция перестановкой последовательности натуральных чисел----------
